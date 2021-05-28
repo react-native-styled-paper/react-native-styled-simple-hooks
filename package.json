@@ -1,6 +1,6 @@
 {
     "name": "react-native-styled-simple-hooks",
-    "version": "1.0.0-develop.8",
+    "version": "1.0.0",
     "description": "",
     "main": "dist/components/index.ts",
     "types": "dist/types/index.d.ts",
@@ -119,7 +119,7 @@
         }
     },
     "react-native-builder-bob": {
-        "source": "components",
+        "source": "hooks",
         "output": "dist",
         "targets": [
             "commonjs",
@@ -132,7 +132,7 @@
             ]
         ],
         "files": [
-            "components/"
+            "hooks/"
         ]
     }
 }

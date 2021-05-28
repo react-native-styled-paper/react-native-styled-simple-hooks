@@ -18,10 +18,10 @@ const libName = "";
     }
 
     if (libName === "components") {
-        fs.removeSync("dist/widgets");
+        fs.removeSync("dist/hooks");
     }
 
-    pkg["main"] = "components/index.ts";
+    pkg["main"] = "hooks/index.ts";
     pkg["types"] = "types/index.d.ts";
 
     // Prepare the package.json for release

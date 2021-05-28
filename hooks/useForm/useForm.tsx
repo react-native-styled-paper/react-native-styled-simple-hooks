@@ -1,5 +1,5 @@
 import * as React from "react";
-import validators from "../../utils/Validator";
+import validators from "../utils/Validator";
 
 const defaultFunc = () => true;
 

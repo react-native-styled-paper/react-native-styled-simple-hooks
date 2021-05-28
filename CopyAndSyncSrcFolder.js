@@ -17,8 +17,8 @@ const copyDirSync = (srcFolders, rootSrc, rootDest, option = {}) => {
 const snapCoreFolders = [""];
 copyDirSync(
     snapCoreFolders,
-    "./components",
-    "./dist/components",
+    "./hooks",
+    "./dist/hooks",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
