@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import * as React from "react";
 import validators from "../../utils/Validator";
 
 const defaultFunc = () => true;
@@ -25,12 +25,12 @@ const useForm = (
     options = {} as any,
 ) => {
     const { onChange = defaultFunc } = options;
-    const [values, setValues] = useState(initialValues);
-    const [touched, setTouched] = useState(getInitialTouched(initialValues));
-    const [errors, setErrors] = useState({});
-    const [hasMissingField, setHasMissingField] = useState(false);
+    const [values, setValues] = React.useState(initialValues);
+    const [touched, setTouched] = React.useState(getInitialTouched(initialValues));
+    const [errors, setErrors] = React.useState({});
+    const [hasMissingField, setHasMissingField] = React.useState(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setHasMissingField(
             Object.keys(errors).some(key => isRequiredError(errors[key]))
         );
@@ -66,10 +66,10 @@ const useForm = (
         const { [validatorEvent]: validatorFlag = true } = rule;
         return (
             validatorFlag ||
-      (touched[name] &&
-        errors[name] &&
-        errors[name].error &&
-        !isRequiredError(errors[name]))
+            (touched[name] &&
+                errors[name] &&
+                errors[name].error &&
+                !isRequiredError(errors[name]))
         );
     };
 
@@ -79,37 +79,37 @@ const useForm = (
         let error = {};
         const fieldValidatorSchema = validationSchema[name];
         const skipValidations =
-      fieldValidatorSchema?.optional && value.trim() === "";
+            fieldValidatorSchema?.optional && value.trim() === "";
 
         if (skipValidations) {
             return { [name]: { error: false } };
         }
 
         fieldValidatorSchema &&
-      Object.keys(fieldValidatorSchema).some(key => {
-          const validator = validators[key];
+            Object.keys(fieldValidatorSchema).some(key => {
+                const validator = validators[key];
 
-          // ignore invalid validation props
-          if (!validator) return false;
+                // ignore invalid validation props
+                if (!validator) return false;
 
-          const rule = fieldValidatorSchema[key];
-          if (!validatorOnEvent(name, rule, validatorEvent)) {
-              return false;
-          }
+                const rule = fieldValidatorSchema[key];
+                if (!validatorOnEvent(name, rule, validatorEvent)) {
+                    return false;
+                }
 
-          const isValid = validator(value, rule);
+                const isValid = validator(value, rule);
 
-          error = {
-              ...error,
-              [name]: {
-                  error: !isValid,
-                  errorMsg: rule.message,
-                  type: key,
-              },
-          };
+                error = {
+                    ...error,
+                    [name]: {
+                        error: !isValid,
+                        errorMsg: rule.message,
+                        type: key,
+                    },
+                };
 
-          return !isValid;
-      });
+                return !isValid;
+            });
 
         return error;
     };
@@ -151,7 +151,7 @@ const useForm = (
         };
     };
 
-    const setFieldValue = useCallback((name, value, untouched = false) => {
+    const setFieldValue = React.useCallback((name, value, untouched = false) => {
         setValues(previousValues => ({ ...previousValues, [name]: value }));
         if (untouched === true) {
             setTouched(touched => ({
@@ -165,13 +165,13 @@ const useForm = (
         }
     }, []);
 
-    const resetForm = useCallback(
+    const resetForm = React.useCallback(
         (initial = {}) => {
             setValues(initial);
             setErrors({});
             setTouched(getInitialTouched(initial));
             // eslint-disable-next-line
-    }, [setValues]);
+        }, [setValues]);
 
     return {
         values,
