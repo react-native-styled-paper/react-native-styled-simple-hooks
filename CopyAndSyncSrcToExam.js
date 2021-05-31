@@ -17,11 +17,11 @@ const copyDirSync = (srcFolders, rootSrc, rootDest, option = {}) => {
 
 const snapCoreFolders = [""];
 
-fs.ensureDirSync("./examples/nextjs-example/react-native-styled-paper/components");
+fs.ensureDirSync("./examples/nextjs-example/react-native-styled-simple-hooks/hooks");
 copyDirSync(
     snapCoreFolders,
-    "./components",
-    "./examples/nextjs-example/react-native-styled-paper/components",
+    "./hooks",
+    "./examples/nextjs-example/react-native-styled-simple-hooks/hooks",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
@@ -42,11 +42,11 @@ copyDirSync(
     }
 );
 
-fs.ensureDirSync("./examples/rn-example/react-native-styled-paper/components");
+fs.ensureDirSync("./examples/rn-example/react-native-styled-simple-hooks/hooks");
 copyDirSync(
     snapCoreFolders,
-    "./components",
-    "./examples/rn-example/react-native-styled-paper/components",
+    "./hooks",
+    "./examples/rn-example/react-native-styled-simple-hooks/hooks",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
@@ -67,11 +67,11 @@ copyDirSync(
     }
 );
 
-fs.ensureDirSync("./examples/cra-example/react-native-styled-paper/components");
+fs.ensureDirSync("./examples/cra-example/react-native-styled-simple-hooks/hooks");
 copyDirSync(
     snapCoreFolders,
-    "./components",
-    "./examples/cra-example/react-native-styled-paper/components",
+    "./hooks",
+    "./examples/cra-example/react-native-styled-simple-hooks/hooks",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
