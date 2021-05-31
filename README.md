@@ -1,6 +1,6 @@
 # react-native-styled-simple-hooks
 
-[Docs](https://react-native-styled-simple-hooks.github.io/react-native-styled-simple-hooks)
+[Docs](https://react-native-styled-paper.github.io/react-native-styled-simple-hooks)
 ## Get Started
 
 ### Installation
